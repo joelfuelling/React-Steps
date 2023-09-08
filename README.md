@@ -46,3 +46,28 @@ const [step, setStep] = useState((s) => s = 1)
 
 *** For data that should not triggger component re-renders, don't use state! Use a regular variables instead. This is a COMMON BEGINNER MISTAKE.
 
+# The "Children" prop: Making a resuable button
+
+Children Prop: Each react componnet automatically receives this prop!
+
+- Instead of using two hard coded buttons, we...
+
+1 - Extracted the backgroundColor and Color into their own 'style' variable.
+2 - Created a button component that takes 2 props, onClick, and text.
+3 - Now, we can define 'handleNext' or 'handlePrevious' for each button by simply changing the onClick function call.
+4 - for the actual HTLM button content, we remove the text and emoji from the Component.
+    4.1 - To give the button WHATEVER CONTENT IS BETWEEN <Button> and </Button>, we use the 'children prop'.
+
+5 - *See Button Component* 
+    - We simply pass in 'children' as a prop down from the Steps component.
+
+export default function Button({onClick, children}) {
+
+    const buttonStyle = {backgroundColor: '#7950f2', color: '#fff'}
+
+    return (
+      <button style={buttonStyle} onClick={onClick}>
+        {children}
+      </button>
+    )
+  }
