@@ -71,3 +71,5 @@ export default function Button({onClick, children}) {
       </button>
     )
   }
+
+  *** What if we want it to display a different message instead? ***

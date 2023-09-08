@@ -1,11 +1,13 @@
 import {useState} from 'react'
 import Button from './Button.js'
+import StepMessage from './StepMessage.js';
 
 const messages = [
     "Learn React ⚛️",
     "Apply for jobs 💼",
     "Invest your new income 🤑",
   ];
+
 export default function Steps({buttonStyle}) {
     // 1 - Add state variable.
     const [step, setStep] = useState(1)
@@ -40,21 +42,22 @@ export default function Steps({buttonStyle}) {
               <div className={step >= 2 ? 'active' : ''} onClick={() => setStep(2)}>2</div> 
               <div className={step >= 3 ? 'active' : ''} onClick={() => setStep(step < 3  ? step + 1 : step)}>3</div>
             </div>
-          <p className="message">
-            Step {step}: {messages[step -1]}
-            {/* {test.name} */}
-          </p>
+            <StepMessage step={step}>
+                {messages[step -1]}
+            </StepMessage>
             <div className ="buttons">
               <Button 
                 style={buttonStyle} 
                   onClick={handlePrevious}
                   >
+                    {/* 'chidlren' prop information created below */}
                 <span>👈</span> Previous 
               </Button>
               <Button 
                 style={buttonStyle} 
                   onClick={handleNext}
               >
+                {/* 'chidlren' prop information created below */}
                 Next <span>👉</span>        
               </Button>
             </div>
