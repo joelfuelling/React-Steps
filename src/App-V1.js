@@ -14,7 +14,6 @@ export default function App() {
     <div>
       {/* State is ISOLATED to each component. Test it out below */}
     <Steps />
-    <Steps />
     </div>
   )
 }
